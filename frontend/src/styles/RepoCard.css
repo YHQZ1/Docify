@@ -1,0 +1,274 @@
+/* RepoCard.css */
+
+.repo-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.repo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.repo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--border-hover);
+}
+
+.repo-card:hover::before {
+  transform: scaleX(1);
+}
+
+.repo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-md);
+  gap: var(--space-sm);
+}
+
+.repo-name {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: var(--leading-tight);
+  word-break: break-word;
+  flex: 1;
+}
+
+.repo-privacy {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.repo-privacy.public {
+  background-color: var(--success-light);
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
+}
+
+.repo-privacy.private {
+  background-color: var(--warning-light);
+  color: var(--warning-color);
+  border: 1px solid var(--warning-color);
+}
+
+.repo-card:hover .repo-privacy.public {
+  background-color: var(--success-color);
+  color: var(--text-white);
+}
+
+.repo-card:hover .repo-privacy.private {
+  background-color: var(--warning-color);
+  color: var(--text-white);
+}
+
+.repo-description {
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  margin: 0 0 var(--space-lg);
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.repo-language {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-muted);
+  position: relative;
+  padding-left: var(--space-md);
+}
+
+.repo-language::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--language-color, var(--secondary-color));
+}
+
+/* Language-specific colors */
+.repo-language[data-language="JavaScript"]::before { background-color: #f7df1e; }
+.repo-language[data-language="Python"]::before { background-color: #3776ab; }
+.repo-language[data-language="Java"]::before { background-color: #ed8b00; }
+.repo-language[data-language="Ruby"]::before { background-color: #cc342d; }
+.repo-language[data-language="TypeScript"]::before { background-color: #3178c6; }
+.repo-language[data-language="Go"]::before { background-color: #00add8; }
+.repo-language[data-language="Rust"]::before { background-color: #ce422b; }
+.repo-language[data-language="C++"]::before { background-color: #00599c; }
+.repo-language[data-language="C#"]::before { background-color: #239120; }
+.repo-language[data-language="PHP"]::before { background-color: #777bb4; }
+
+.repo-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.repo-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left var(--transition-normal);
+}
+
+.repo-link:hover {
+  color: var(--primary-hover);
+  background-color: var(--primary-light);
+  transform: translateX(4px);
+}
+
+.repo-link:hover::before {
+  left: 100%;
+}
+
+/* Focus states for accessibility */
+.repo-card:focus-within {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.repo-link:focus {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.repo-card.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.repo-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .repo-card {
+    padding: var(--space-lg);
+  }
+  
+  .repo-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  
+  .repo-name {
+    font-size: var(--text-lg);
+  }
+  
+  .repo-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  
+  .repo-link {
+    align-self: flex-end;
+  }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .repo-card {
+  background: var(--bg-secondary);
+  border-color: var(--border-dark);
+}
+
+[data-theme="dark"] .repo-card:hover {
+  border-color: var(--border-focus);
+}
+
+[data-theme="dark"] .repo-footer {
+  border-color: var(--border-dark);
+}
+
+/* Animation for card entrance */
+.repo-card {
+  animation: cardEntrance 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes cardEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle pulse animation for new cards */
+.repo-card.new {
+  animation: newCardPulse 2s ease-in-out;
+}
+
+@keyframes newCardPulse {
+  0%, 100% { box-shadow: var(--shadow-md); }
+  50% { box-shadow: var(--shadow-lg), 0 0 20px rgba(59, 130, 246, 0.3); }
+}

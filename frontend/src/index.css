@@ -1,0 +1,286 @@
+:root {
+  /* GitHub Primary Colors */
+  --primary-color: #0969da;        /* GitHub blue */
+  --primary-hover: #0550ae;        /* Darker blue on hover */
+  --primary-light: #ddf4ff;        /* Light blue background */
+  --primary-dark: #0a3069;         /* Dark blue for emphasis */
+  
+  --secondary-color: #656d76;      /* GitHub gray */
+  --secondary-hover: #424a53;      /* Darker gray on hover */
+  --secondary-light: #f6f8fa;      /* Light gray background */
+  --secondary-dark: #24292f;       /* Dark gray for text */
+  
+  --accent-color: #1a7f37;         /* GitHub green (success) */
+  --accent-hover: #116329;         /* Darker green on hover */
+  --accent-light: #dcffe4;         /* Light green background */
+  
+  --danger-color: #cf222e;         /* GitHub red (danger) */
+  --danger-hover: #a40e26;         /* Darker red on hover */
+  --danger-light: #ffebe9;         /* Light red background */
+  
+  --warning-color: #fb8500;        /* GitHub orange (warning) */
+  --warning-hover: #d1660b;        /* Darker orange on hover */
+  --warning-light: #fff8dc;        /* Light orange background */
+  
+  --success-color: #1a7f37;        /* GitHub green (same as accent) */
+  --success-hover: #116329;        /* Darker green on hover */
+  --success-light: #dcffe4;        /* Light green background */
+  
+  /* GitHub Text Colors */
+  --text-primary: #24292f;         /* GitHub's primary text */
+  --text-secondary: #656d76;       /* GitHub's secondary text */
+  --text-muted: #8b949e;           /* GitHub's muted text */
+  --text-white: #ffffff;           /* Pure white */
+  --text-inverse: #f0f6fc;         /* Light text for dark backgrounds */
+  --text-link: #0969da;            /* Link color (same as primary) */
+  --text-link-hover: #0550ae;      /* Link hover color */
+  
+  /* GitHub Background Colors */
+  --bg-primary: #ffffff;           /* Main background */
+  --bg-secondary: #f6f8fa;         /* Secondary background */
+  --bg-tertiary: #eaeef2;          /* Tertiary background */
+  --bg-canvas: #ffffff;            /* Canvas background */
+  --bg-overlay: #ffffff;           /* Overlay background */
+  --bg-dark: #0d1117;              /* Dark mode primary */
+  --bg-darker: #010409;            /* Dark mode secondary */
+  --bg-code: #f6f8fa;              /* Code block background */
+  --bg-highlight: #fff8c5;         /* Highlight background */
+  
+  /* GitHub Border Colors */
+  --border-color: #d0d7de;         /* Default border */
+  --border-hover: #bcc4ce;         /* Border on hover */
+  --border-focus: #0969da;         /* Border on focus */
+  --border-dark: #30363d;          /* Dark mode border */
+  --border-muted: #eaeef2;         /* Muted border */
+  
+  /* Spacing (unchanged) */
+  --space-xs: 0.25rem;    /* 4px */
+  --space-sm: 0.5rem;     /* 8px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+  
+  /* Font Families */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  --font-secondary: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', Menlo, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  
+  /* Font Sizes (unchanged) */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+  --text-6xl: 3.75rem;    /* 60px */
+  
+  /* Font Weights (unchanged) */
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+  
+  /* Line Heights (unchanged) */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  --leading-loose: 2;
+  
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.1875rem;  /* 3px - GitHub's small radius */
+  --radius-md: 0.375rem;   /* 6px - GitHub's default radius */
+  --radius-lg: 0.5rem;     /* 8px */
+  --radius-xl: 0.75rem;    /* 12px */
+  --radius-2xl: 1rem;      /* 16px */
+  --radius-full: 9999px;
+  
+  /* GitHub-style Shadows */
+  --shadow-sm: 0 1px 0 rgba(27, 31, 35, 0.04);
+  --shadow-md: 0 3px 6px rgba(140, 149, 159, 0.15);
+  --shadow-lg: 0 8px 24px rgba(140, 149, 159, 0.2);
+  --shadow-xl: 0 12px 28px rgba(140, 149, 159, 0.25);
+  --shadow-2xl: 0 16px 32px rgba(140, 149, 159, 0.3);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --shadow-focus: 0 0 0 3px rgba(9, 105, 218, 0.3);
+  
+  /* Z-index (unchanged) */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+  
+  /* Breakpoints (unchanged) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  /* Transitions */
+  --transition-fast: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+  --transition-normal: 200ms cubic-bezier(0.33, 1, 0.68, 1);
+  --transition-slow: 300ms cubic-bezier(0.33, 1, 0.68, 1);
+  
+  /* Container Widths (unchanged) */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+}
+
+/* GitHub Dark Theme */
+[data-theme="dark"] {
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --text-white: #0d1117;
+  --text-inverse: #24292f;
+  --text-link: #58a6ff;
+  --text-link-hover: #79c0ff;
+  
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --bg-canvas: #0d1117;
+  --bg-overlay: #161b22;
+  --bg-dark: #f0f6fc;
+  --bg-darker: #ffffff;
+  --bg-code: #161b22;
+  --bg-highlight: #ffd33d22;
+  
+  --border-color: #30363d;
+  --border-hover: #484f58;
+  --border-focus: #1f6feb;
+  --border-dark: #d0d7de;
+  --border-muted: #21262d;
+  
+  --primary-color: #1f6feb;
+  --primary-hover: #58a6ff;
+  --primary-light: #0d2741;
+  --primary-dark: #79c0ff;
+  
+  --secondary-color: #8b949e;
+  --secondary-hover: #b1bac4;
+  --secondary-light: #21262d;
+  --secondary-dark: #f0f6fc;
+  
+  --accent-color: #3fb950;
+  --accent-hover: #56d364;
+  --accent-light: #0f2419;
+  
+  --danger-color: #f85149;
+  --danger-hover: #ff7b72;
+  --danger-light: #2c1618;
+  
+  --warning-color: #d29922;
+  --warning-hover: #e3b341;
+  --warning-light: #2d1b00;
+  
+  --success-color: #3fb950;
+  --success-hover: #56d364;
+  --success-light: #0f2419;
+  
+  --shadow-sm: 0 0 transparent;
+  --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 12px 28px rgba(0, 0, 0, 0.25);
+  --shadow-2xl: 0 16px 32px rgba(0, 0, 0, 0.3);
+  --shadow-focus: 0 0 0 3px rgba(31, 111, 235, 0.3);
+}
+
+/* Global styles using the variables */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: var(--transition-normal);
+}
+
+/* Utility classes */
+.container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-link { color: var(--text-link); }
+.text-link:hover { color: var(--text-link-hover); }
+
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-canvas { background-color: var(--bg-canvas); }
+.bg-code { background-color: var(--bg-code); }
+
+.border { border: 1px solid var(--border-color); }
+.border-radius { border-radius: var(--radius-md); }
+
+.shadow { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-focus { box-shadow: var(--shadow-focus); }
+
+/* GitHub-specific utility classes */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border: 1px solid var(--primary-color);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-medium);
+  transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-medium);
+  transition: var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-hover);
+}
+
+.code-block {
+  background-color: var(--bg-code);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  overflow-x: auto;
+}

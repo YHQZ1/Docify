@@ -1,0 +1,469 @@
+/* RepoView Styles using Root Variables */
+.repoview-container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.repoview-main {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+/* ================================
+   LOADING STATE STYLES
+   ================================ */
+.repoview-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: var(--space-2xl);
+}
+
+.repoview-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color, #e5e7eb);
+  border-top: 3px solid var(--primary-color, #3b82f6);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--space-md);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.repoview-loading p {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ================================
+   ERROR STATE STYLES
+   ================================ */
+.repoview-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: var(--space-2xl);
+  text-align: center;
+}
+
+.repoview-error h2 {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  font-weight: var(--font-semibold);
+}
+
+.repoview-error > p {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.error-details {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin: var(--space-md) 0;
+  font-family: 'Courier New', monospace;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-align: left;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.error-suggestion {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  font-style: italic;
+}
+
+.repoview-error .back-button {
+  background: var(--primary-color, #3b82f6);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.repoview-error .back-button:hover {
+  opacity: 0.9;
+}
+
+/* ================================
+   MAIN CONTENT STYLES
+   ================================ */
+.repo-view {
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  min-height: calc(100vh - 4rem);
+  background-color: var(--bg-primary);
+  transition: var(--transition-normal);
+}
+
+.repo-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.back-button:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  transform: translateX(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.back-button:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.repo-title {
+  font-family: var(--font-primary);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.repo-description {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  margin: var(--space-sm) 0 0 0;
+  line-height: 1.6;
+}
+
+.file-list {
+  margin-bottom: var(--space-2xl);
+}
+
+.file-list h3 {
+  font-family: var(--font-primary);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-lg) 0;
+  padding-left: var(--space-sm);
+}
+
+.file-listing {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.file-listing:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-xs);
+  background-color: var(--bg-primary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  transition: var(--transition-fast);
+  cursor: default;
+}
+
+.file-item:last-child {
+  margin-bottom: 0;
+}
+
+.file-item:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-color);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.file-name {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  user-select: none;
+}
+
+.file-size {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-left: var(--space-sm);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.generate-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-xl);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  border: none;
+  border-radius: var(--radius-xl);
+  color: var(--text-white);
+  font-family: var(--font-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.generate-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: var(--transition-slow);
+}
+
+.generate-button:hover::before {
+  left: 100%;
+}
+
+.generate-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, var(--primary-hover), var(--primary-dark));
+}
+
+.generate-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-lg);
+}
+
+.generate-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .repo-view {
+    padding: var(--space-lg) var(--space-sm);
+  }
+  
+  .repo-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    text-align: left;
+  }
+  
+  .back-button {
+    align-self: flex-start;
+  }
+  
+  .repo-title {
+    font-size: var(--text-2xl);
+    align-self: flex-start;
+  }
+  
+  .file-list h3 {
+    font-size: var(--text-lg);
+  }
+  
+  .file-listing {
+    padding: var(--space-md);
+  }
+  
+  .file-item {
+    padding: var(--space-sm);
+  }
+  
+  .file-name {
+    font-size: var(--text-xs);
+  }
+  
+  .generate-button {
+    font-size: var(--text-base);
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .repoview-loading {
+    padding: var(--space-lg);
+    min-height: 60vh;
+  }
+
+  .repoview-error {
+    padding: var(--space-lg);
+    min-height: 60vh;
+  }
+
+  .repoview-error h2 {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .repo-view {
+    padding: var(--space-md) var(--space-sm);
+  }
+  
+  .repo-header {
+    gap: var(--space-sm);
+  }
+  
+  .repo-title {
+    font-size: var(--text-xl);
+  }
+  
+  .file-item:hover {
+    transform: none;
+  }
+  
+  .generate-button {
+    max-width: 100%;
+  }
+
+  .repoview-loading p {
+    font-size: var(--text-sm);
+  }
+
+  .repoview-error > p {
+    font-size: var(--text-sm);
+  }
+
+  .repoview-error .back-button {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .repo-title {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .file-listing {
+  background-color: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .file-item {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .file-item:hover {
+  background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] .back-button {
+  background-color: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .back-button:hover {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .error-details {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+/* Animation for file items */
+.file-item {
+  animation: slideIn 0.3s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading state for generate button */
+.generate-button.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.generate-button.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--text-white);
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+}
+

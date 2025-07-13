@@ -1,0 +1,301 @@
+/* Dashboard.css */
+.dashboard-main {
+  padding-top: 2rem; /* Adjust based on your navbar height */
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  padding-bottom: var(--space-xl);
+}
+
+.dashboard-wrapper {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.dashboard-title {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+  position: relative;
+}
+
+.dashboard-title::after {
+  content: '';
+  position: absolute;
+  bottom: -var(--space-sm);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: var(--radius-full);
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+/* ================================
+   LOADING STATE STYLES
+   ================================ */
+.dashboard-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: var(--space-2xl);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color, #e5e7eb);
+  border-top: 3px solid var(--primary-color, #3b82f6);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--space-md);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.dashboard-loading p {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: var(--font-normal);
+}
+
+/* ================================
+   ERROR STATE STYLES
+   ================================ */
+.dashboard-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: var(--space-2xl);
+  text-align: center;
+}
+
+.dashboard-error h2 {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  font-weight: var(--font-semibold);
+}
+
+.dashboard-error > p {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.error-details {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin: var(--space-md) 0;
+  font-family: 'Courier New', monospace;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-align: left;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.retry-button {
+  background: var(--primary-color, #3b82f6);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.retry-button:hover {
+  opacity: 0.9;
+}
+
+/* ================================
+   NO REPOSITORIES STATE
+   ================================ */
+.no-repos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  text-align: center;
+  padding: var(--space-2xl);
+}
+
+.no-repos p {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: var(--space-lg) var(--space-sm);
+  }
+  
+  .dashboard-title {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .repo-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .dashboard-loading {
+    padding: var(--space-lg);
+    min-height: 60vh;
+  }
+
+  .dashboard-error {
+    padding: var(--space-lg);
+    min-height: 60vh;
+  }
+
+  .dashboard-error h2 {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: var(--text-2xl);
+  }
+  
+  .repo-grid {
+    gap: var(--space-md);
+  }
+
+  .dashboard-loading p {
+    font-size: var(--text-sm);
+  }
+
+  .dashboard-error > p {
+    font-size: var(--text-sm);
+  }
+
+  .retry-button {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+  }
+}
+
+/* ================================
+   ANIMATIONS
+   ================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grid animation for staggered loading effect */
+.repo-grid > * {
+  animation: slideInScale 0.6s ease-out forwards;
+  animation-delay: calc(var(--animation-delay, 0) * 0.1s);
+}
+
+@keyframes slideInScale {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .dashboard-container {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+[data-theme="dark"] .error-details {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+[data-theme="dark"] .no-repos {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Optional: Add a subtle pattern overlay */
+.dashboard-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Hover effect for the entire dashboard */
+.dashboard-wrapper:hover .dashboard-title::after {
+  width: 120px;
+  transition: width var(--transition-normal);
+}
+
+/* Loading state (optional) */
+.dashboard-container.loading .repo-grid {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.dashboard-container.loading .repo-grid::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
