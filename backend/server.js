@@ -6,6 +6,7 @@ const securityHeaders = require('./middleware/securityHeaders');
 const authRoutes = require('./routes/authRoutes');
 const repoRoutes = require('./routes/repoRoutes');
 const healthRoutes = require('./routes/healthRoutes');
+const docRoutes = require('./routes/docRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -22,6 +23,7 @@ app.use(securityHeaders);
 app.use('/', healthRoutes);
 app.use('/auth', authRoutes);
 app.use('/api', repoRoutes);
+app.use('/api/docs', docRoutes); 
 
 // Start server
 app.listen(PORT, () => {
